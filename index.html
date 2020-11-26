@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<title> My Map </title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+<h4></h4>
+<style>
+/*this is CSS and how you comment*/
+body {margin:0; padding:0;}
+#map{position: absolute;top: 0; bottom: 0; width: 100%; }
+.mapboxgl-popup {
+          max-width: 400px;
+          font 12px/20px 'Courier',
+              }
+</style>
+<div id='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibS1wZXR0aXMiLCJhIjoiY2tkN3BlYmgwMmM3MjJzcTk5andud3FmeiJ9.7VGFrJsk4lpCEPGHzBIw2w';
+//call in your map
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/m-pettis/ckfc4wksc1d421aqx4opix2sk', // stylesheet location
+    center: [-120.376601, 46.9553967], // starting position [lng, lat]
+    zoom: 6.77 // starting zoom
+});
+//add in your var marker section
+//Initialize the geolocate control
+var geolocate = new mapboxgl.GeolocateControl ({
+  positionOptions: {
+    enableHighAccuracy: true
+  },
+  trackUserLocation: true
+});
+//add the control to the map
+map.addControl(geolocate);
+map.on('load',function(){
+  geolocate.trigger();
+  //add your feature collection here
+  map.addSource('places',{
+  'type': 'geojason',
+  'data': {
+  //add geojason data here
+    'type': 'FeatureCollection',
+    'features': [
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Driving 309892m Through Washington',
+          'title': 'Astoria'
+        },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -123.2559097,
+            45.5103211
+          ]
+        }
+      },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Courthouse From The Goonies ',
+          'title': 'Clatsop Circuit Court'
+        },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -123.8351714,
+            46.188747199999995
+          ]
+        }
+      },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Driving Distance 265653m ',
+          'title': 'Seattle'
+        },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -123.8351714,
+            46.188747199999995
+          ]
+        }
+      },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Seafood Distance 0m ',
+          'title': 'Ivars Acres of Clams'
+        },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -122.3395662,
+            47.6040335
+          ]
+        }
+        },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': 'Distance',
+          'title': 'Downtown Seattle'
+      },
+        'geometry': {
+          'type': 'Point',
+          'coordinates':
+            [-122.3343709,
+            47.605024199999995
+            ]
+          }
+        },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': 'Seafood Distance',
+          'title': 'Ivars Acres of Clams'
+      },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -122.33430186161186,
+            47.598299781455694
+          ]
+        }
+      },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Walking Distance 1049m ',
+          'title': 'Lost in Seattle'
+      },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -122.33956619999998,
+            47.6040335
+          ]
+        }
+        },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Distance 0m ',
+          'title': 'Downtown Seattle'
+        }
+      },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -122.3343709,
+            47.605024199999995
+          ]
+        }
+      },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Driving Distance 195790m ',
+          'title': 'Vantage'
+      },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -122.33434593118395,
+            47.59821515520287
+          ]
+        }
+      },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Art 0m ',
+          'title': 'Wild Horse Monument'
+      },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -119.9614934,
+            46.9659954
+          ]
+        }
+      },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Gas station Distance 0m ',
+          'title': '76 Gas Station'
+      },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -119.96149339999998,
+            46.9659954
+          ]
+          }
+        },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Driving Distance 33196m ',
+          'title': 'Ephrata'
+      },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -119.5610478,
+            47.3067636
+          ]
+          }
+        },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': ' Mexican Distance 0m ',
+          'title': 'Tacos Mi Casa #2'
+      },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -119.27592209999999,
+            47.1288907
+          ]
+          }
+        },
+      {
+        'type': 'Feature',
+        'properties': {
+          'description': 'Passing Through Olympia',
+          'title': 'Olympia Washington'
+        },
+        'geometry': {
+          'type': 'Point',
+          'coordinates': [
+            -122.8985595703125,
+            47.02801434856074
+          ]
+        }
+      }
+    ]
+  }
+});
+//add a layer showing the places
+  map.addLayer({
+    'id': 'places',
+    'type':'symbol',
+    'source': 'places',
+    'layout': {
+    'icon-image':'border-dot-13',
+    'icon-allow-overlap': true,
+    }
+  });
+//adding a pop up features
+map.on('click', 'places', function(e) {
+var coordinates = e.features[0].geometry.coordinates.slice();
+var description = e.features[0].properties.description;
+var title = e.features[0].properties.title;
+new mapboxgl.Popup()
+.setLngLat(coordinates)
+.setHTML('<h3>' + title + '<h/h3><p>' + description + '</p>')
+.addTo(map);
+      });
+});
+</script>
+</body>
+</html>
